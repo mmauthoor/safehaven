@@ -10,7 +10,6 @@
     "bcrypt": "^5.0.1",
     "express": "^4.17.2",
     "google-map-react": "^2.1.10",
-    "google-maps-react": "^2.0.6",
     "lodash": "^4.17.21",
     "pg": "^8.7.3",
     "react": "^17.0.2",
