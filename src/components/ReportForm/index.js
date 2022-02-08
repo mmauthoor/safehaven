@@ -6,10 +6,14 @@ import TimePicker from '@mui/lab/TimePicker';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import { DateTime } from "luxon";
+import LocationSearchBar from './LocationSearchBar';
+
 
 export default function ReportForm() {
     
     const [value, setValue] = useState(new Date());
+    const [lat, setLat] = useState(0)
+    const [lng, setLng] = useState(0)
 
     const handleChange = (newValue) => {
     setValue(newValue);
@@ -39,6 +43,7 @@ export default function ReportForm() {
                         />
                     </Stack>
                 </LocalizationProvider>
+                <LocationSearchBar passLngData={setLng} passLatData={setLat}/>
 
             </form>
         </>
