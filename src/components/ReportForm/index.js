@@ -6,32 +6,71 @@ import TimePicker from '@mui/lab/TimePicker';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import LocationSearchBar from './LocationSearchBar';
-import { format } from 'date-fns'
+import { format } from 'date-fns';
+const axios = require('axios');
+
 
 
 export default function ReportForm() {
     
+    const [email, setEmail] = useState("");
     const [value, setValue] = useState(new Date());
-    const [lat, setLat] = useState(0)
-    const [lng, setLng] = useState(0)
+    const [lat, setLat] = useState(0);
+    const [lng, setLng] = useState(0);
+    const [userInput, setUserInput] = useState("");
 
     const handleChange = (newValue) => {
         setValue(newValue);
     };
 
-    const dateToString = format(value, 'yyyy-MM-dd');
-    const timeToString = format(value, "HH:mm:SS");
+    const handleEmail = (event) => {
+        setEmail(event.target.value);
+    }
+    
+    const handleUserInput = ({target}) => {
+        const {value} = target;
+        setUserInput(value);
+    }
 
     // console.log(new Intl.DateTimeFormat('en-US', {hour: "numeric", minute: "numeric", dayPeriod: "short",}).format(value))
+
+    const submitReport = (event) => {
+        event.preventDefault();
+        const dateToString = format(value, 'yyyy-MM-dd');
+        const timeToString = format(value, "HH:mm");
+
+        let url = "http://localhost:8000/api/reports"
+        axios.post(url, {
+            email: email,
+            lat: lat,
+            lng: lng,
+            date: dateToString,
+            time: timeToString,
+            user_input: userInput
+        })
+            .then(response => {
+                // console.log(newReport)
+                console.log(response)
+            })
+            .catch(error => console.log(error))
+        
+        // ideally redirect to help page with new message saying verify your email for report to be published
+    }
+
+    // const renderHelp = () => {
+    //     console.log("Sorry you feel bad")
+    // }
     
     
     return (
         <>
-            <form action="/api/reports">
+            <form action="">
                 
                 <LocalizationProvider dateAdapter={DateAdapter}>
                     <Stack spacing={5}>
-                        <label htmlFor="">Email <input type="email" /></label>
+                        <label htmlFor="">Email 
+                            <input type="email" onChange={handleEmail} />
+                        </label>
                         
                         <MobileDatePicker label="Date mobile"
                             inputFormat="MM/dd/yyyy"
@@ -49,8 +88,10 @@ export default function ReportForm() {
                     </Stack>
                 </LocalizationProvider>
                 <LocationSearchBar passLngData={setLng} passLatData={setLat}/>
-                <label htmlFor="">Optional description of events <input type="textarea" /></label>
-                <button>Submit report</button>
+                <label htmlFor="">Optional description of events 
+                    <textarea id="w3review" name="w3review" rows="4" cols="50" onChange={handleUserInput}></textarea>
+                </label>
+                <button onClick={submitReport}>Submit report</button>
 
             </form>
         </>
