@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 
 
 
-function SimpleMap() {
+function ShowMap() {
   
   const Marker = () => (
     <div style={{
@@ -25,6 +25,7 @@ function SimpleMap() {
   );
   
   const [markers, setMarkers] = useState([]);
+//   const [bounds, setBounds] = useState();
 
   useEffect(() => {
     fetch('http://localhost:8000/api/reports')
@@ -52,4 +53,4 @@ function SimpleMap() {
   }
 
 
-export default SimpleMap;
+export default ShowMap;
