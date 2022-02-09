@@ -17,6 +17,7 @@ export default function ReportForm() {
 
     const handleChange = (newValue) => {
     setValue(newValue);
+    console.log(value)
     };
     
     
