@@ -20,12 +20,12 @@ CREATE TABLE reports(
     user_input      TEXT
 );
 
-INSERT INTO reports (id, user_email, lat, lng, date, time) VALUES (1, 'dummy_user@gmail.com', -37.80358354065614, 144.9829537530948, '2022-02-08', '19:21');
+INSERT INTO reports (user_email, lat, lng, date, time) VALUES ('dummy_user@gmail.com', -37.80358354065614, 144.9829537530948, '2022-02-08', '19:21');
 
-INSERT INTO reports (id, user_email, lat, lng, date, time) VALUES (2, 'dummy_user@gmail.com', -37.801142115052, 144.977975573588, '2022-02-08', '21:12');
+INSERT INTO reports (user_email, lat, lng, date, time) VALUES ('dummy_user@gmail.com', -37.801142115052, 144.977975573588, '2022-02-08', '21:12');
 
-INSERT INTO reports (id, user_email, lat, lng, date, time) VALUES (3, 'dummy_user@gmail.com', -37.860942804966975, 145.0335521558427, '2022-01-21', '11:29');
+INSERT INTO reports (user_email, lat, lng, date, time) VALUES ('dummy_user@gmail.com', -37.860942804966975, 145.0335521558427, '2022-01-21', '11:29');
 
-INSERT INTO reports (id, user_email, lat, lng, date, time) VALUES (4, 'dummy_user@gmail.com', -37.86579137378682, 144.90928653091368, '2022-01-21', '11:29');
+INSERT INTO reports (user_email, lat, lng, date, time) VALUES ('dummy_user@gmail.com', -37.86579137378682, 144.90928653091368, '2022-01-21', '11:29');
 
-INSERT INTO reports (id, user_email, lat, lng, date, time) VALUES (5, 'dummy_user@gmail.com', -37.82724588813131, 144.95809947096345, '2022-01-11', '16:19');
+INSERT INTO reports (user_email, lat, lng, date, time) VALUES ('dummy_user@gmail.com', -37.82724588813131, 144.95809947096345, '2022-01-11', '16:19');
