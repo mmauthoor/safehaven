@@ -1,7 +1,7 @@
 import logo from './greylogo-02.png'
 import searchIcon from './search.png'
 import './App.css';
-import SimpleMap, { MapContainer } from './Map.js';
+import ShowMap, { MapContainer } from './Map.js';
 import ReportForm from './components/ReportForm'
 
 
@@ -32,7 +32,7 @@ function App() {
         
       </div>
       <div className="map-container">
-      <SimpleMap />
+      <ShowMap />
       </div>
 
       <div className="report-form-container">
