@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'
 
 function SimpleMap() {
   
-  const Marker = ({  }) => (
+  const Marker = () => (
     <div style={{
       color: 'white', 
       background: 'grey',
@@ -24,11 +24,15 @@ function SimpleMap() {
     </div>
   );
   
-  const [marker, setMarker] = useState({})
+  const [markers, setMarkers] = useState([]);
 
   useEffect(() => {
-    fetch('/api/reports').then(res => console.log(res.json())).then(res => setMarker(res))
+    fetch('http://localhost:8000/api/reports')
+    .then(res => res.json())
+    .then(res => setMarkers(res))
   },[])
+
+
 
     return (
       // Important! Always set the container height explicitly
@@ -39,9 +43,9 @@ function SimpleMap() {
           }}
           defaultCenter={{lat: -37.8136, lng: 144.9631}}
           defaultZoom={11}
-          
+          onChange={e => console.log(e)}
         >
-        <Marker lat={-37.8136} lng={144.9631} />
+        {markers.map(marker => <Marker lat={marker.lat} lng={marker.lng}/>)}
         </GoogleMapReact>
       </div>
     );
