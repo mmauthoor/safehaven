@@ -1,12 +1,12 @@
 import {useState} from 'react'
-import DateAdapter from '@mui/lab/AdapterLuxon';
+import DateAdapter from '@mui/lab/AdapterDateFns';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import TimePicker from '@mui/lab/TimePicker';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
-import { DateTime } from "luxon";
 import LocationSearchBar from './LocationSearchBar';
+import { format } from 'date-fns'
 
 
 export default function ReportForm() {
@@ -16,14 +16,18 @@ export default function ReportForm() {
     const [lng, setLng] = useState(0)
 
     const handleChange = (newValue) => {
-    setValue(newValue);
-    console.log(value)
+        setValue(newValue);
     };
+
+    const dateToString = format(value, 'yyyy-MM-dd');
+    const timeToString = format(value, "HH:mm:SS");
+
+    // console.log(new Intl.DateTimeFormat('en-US', {hour: "numeric", minute: "numeric", dayPeriod: "short",}).format(value))
     
     
     return (
         <>
-            <form action="">
+            <form action="/api/reports">
                 
                 <LocalizationProvider dateAdapter={DateAdapter}>
                     <Stack spacing={5}>
@@ -45,6 +49,8 @@ export default function ReportForm() {
                     </Stack>
                 </LocalizationProvider>
                 <LocationSearchBar passLngData={setLng} passLatData={setLat}/>
+                <label htmlFor="">Optional description of events <input type="textarea" /></label>
+                <button>Submit report</button>
 
             </form>
         </>
