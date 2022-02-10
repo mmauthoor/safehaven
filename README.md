@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# ABOUT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Safehaven is a mobile-first app created predominantly for women to report incidents of sexual assault across Australia. The app allows you to see incidents reported by other anonymous users across cities and to easily report incidents yourself. This is an app that we would prefer to not need, but unfortunately we do. 
 
-## Available Scripts
+# HOW IT WORKS
 
-In the project directory, you can run:
+Safehaven uses Google Maps API so that users are able to seamlessly glide across the map and search for incidents of sexual assault across Australia. When a user wants to make a report, they hit "Report Incident" that is always displayed in the nav bar. Once the user has submitted their incident, we verify their email in our database and then publish the incident with a marker and info box on the map. 
 
-### `npm start`
+# TECH USED
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Safehaven is a full stack application built with: 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- REACT
+- HTML 
+- CSS
+- JAVASCRIPT
+- NODE.JS
+- EXPRESS
+- POSTGRESQL
+- AXIOS
+- MUI REACT LIBRARY 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# OUR APPROACH
 
-### `npm run build`
+Our team approached this project by first mapping out our application wireframe and user flow. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](https://imgur.com/pqwgt62)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](https://imgur.com/n1Gs1FI)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![](https://imgur.com/9Q66fB1)
 
-### `npm run eject`
+(Data)[goes here]
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+We then created a Trello board of features and split them into categories of features that we must have, vs features that would be nice to have once we'd reached our MVP.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+We broke down our app into components to build and split into teams for pair programming: 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- App
+- Map
+- Incident Form
+- Database
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+# BUGS + HURDLES
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Current bugs:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Update when finished to log any bugs
 
-### Code Splitting
+A few hurdles we had along the way: 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Doing a mobile first design. This was a first for all of us so we had to really plan out how we would make each component work on mobile.
+- GitHub
+- google-maps-react vs google-map-react 
+- More GitHub
+- Email Verification (We ended up not using this right now as it chewed too much into us reaching an MVP. This is definitely something we will add as an additional feature in the future.)
+- Middleware issues
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
