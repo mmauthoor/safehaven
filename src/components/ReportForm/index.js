@@ -63,7 +63,7 @@ export default function ReportForm() {
     
     
     return (
-        <>
+        <div className="report-form-container">
             <form action="">
                 
                 <LocalizationProvider dateAdapter={DateAdapter}>
@@ -94,6 +94,6 @@ export default function ReportForm() {
                 <button onClick={submitReport}>Submit report</button>
 
             </form>
-        </>
+        </div>
     )
 }
