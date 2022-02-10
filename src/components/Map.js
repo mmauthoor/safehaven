@@ -3,7 +3,7 @@ import GoogleMapReact from "google-map-react";
 import './Map.css'
 // import { Link } from "react-router-dom";
 import { useState } from 'react'
-import MarkerImage from './MarkerImage.png'
+import MarkerImage from '../MarkerImage.png'
 import Tooltip from '@mui/material/Tooltip';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import { format } from 'date-fns';
@@ -23,7 +23,7 @@ function ShowMap({lat, lng, zoomValue}) {
   };
 
   const Marker = (props) => {
-    const { index, incidentDate, incidentTime } = props;
+    const { index, incidentDate, incidentTime, userInput } = props;
     const date = new Date(incidentDate);
     return (
       <>
@@ -42,6 +42,10 @@ function ShowMap({lat, lng, zoomValue}) {
                   <h4>Incident Reported</h4>
                   <p>Date: {format(date, 'dd-MM-yyyy')}</p>
                   <p>Time: {incidentTime.substring(0, 5)}</p>
+                  {userInput
+                    ? <p>Details: {userInput}</p>
+                    : <></>
+                  }
                   </div>} arrow placement="top"
               >
                 <img onClick={() => handleTooltipOpen(index)} className="markers" src={MarkerImage}></img>
@@ -53,7 +57,6 @@ function ShowMap({lat, lng, zoomValue}) {
   };
 
   const handleBoundsChange = (mapNew) => {
-    console.log(mapNew);
     let corners = {
       topLat: mapNew.marginBounds.ne.lat,
       topLng: mapNew.marginBounds.ne.lng,
@@ -66,7 +69,6 @@ function ShowMap({lat, lng, zoomValue}) {
     }
   
     return (
-      // Important! Always set the container height explicitly
       <div style={{ height: "50vh", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{
@@ -78,7 +80,15 @@ function ShowMap({lat, lng, zoomValue}) {
         >
         {markers.map(
           (marker, index) => 
-              <Marker key={index} index={index} lat={marker.lat} lng={marker.lng} incidentDate={marker.date} incidentTime={marker.time}/>
+              <Marker 
+                key={index} 
+                index={index} 
+                lat={marker.lat} 
+                lng={marker.lng} 
+                incidentDate={marker.date} 
+                incidentTime={marker.time}
+                userInput={marker.user_input}
+                />
         )}
         </GoogleMapReact>
       </div>

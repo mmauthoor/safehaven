@@ -1,7 +1,7 @@
 import logo from './logo.png'
 import searchIcon from './search.png'
 import './App.css';
-import ShowMap, { MapContainer } from './Map.js';
+import ShowMap from './components/Map.js';
 import ReportForm from './components/ReportForm'
 import {Routes, Route, Link} from 'react-router-dom'
 import Resources from './components/Resources'
