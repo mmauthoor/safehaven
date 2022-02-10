@@ -53,6 +53,9 @@ const LocationSearchBar = (props) => {
           .then(({ lat, lng }) => {
             props.passLngData(lng);
             props.passLatData(lat);
+            if (props.passZoomData){
+              props.passZoomData(15);
+            }
 
           })
           .catch((error) => {
