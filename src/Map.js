@@ -5,6 +5,15 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import MarkerImage from './MarkerImage.png'
 
+// function getVisibleMarkers(coords){
+  // setMarkers([])
+//   let sql = `SELECT * FROM reports 
+//   WHERE (latitude BETWEEN ${mapBounds.botLat} AND ${mapBounds.topLat}) 
+//   AND (longitude BETWEEN ${mapBounds.botLng} AND ${mapBounds.topLng});`
+
+//   return db.query(sql) //check format of db
+// }
+
 function ShowMap() {
   
   const Marker = () => (
@@ -27,7 +36,7 @@ function ShowMap() {
   
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: "100vh", width: "100%" }}>
+      <div style={{ height: "50vh", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{
             key: process.env.REACT_APP_GOOGLE_MAPS_API

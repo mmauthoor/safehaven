@@ -1,0 +1,13 @@
+.location-search-bar {
+    height: 50px;
+    display: flex;
+    width: 100%;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+}
+
+.location-list {
+    list-style-type: none;
+    text-align: left;
+    line-height: 25px;
+}
