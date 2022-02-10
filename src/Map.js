@@ -4,19 +4,6 @@ import './Map.css'
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import MarkerImage from './MarkerImage.png'
-<<<<<<< HEAD
-=======
-
-
-// function getVisibleMarkers(coords){
-  // setMarkers([])
-//   let sql = `SELECT * FROM reports 
-//   WHERE (latitude BETWEEN ${mapBounds.botLat} AND ${mapBounds.topLat}) 
-//   AND (longitude BETWEEN ${mapBounds.botLng} AND ${mapBounds.topLng});`
-
-//   return db.query(sql) //check format of db
-// }
->>>>>>> 6f9b72d (added routing for homepage)
 
 function ShowMap() {
   
