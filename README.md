@@ -25,11 +25,11 @@ Safehaven is a full stack application built with:
 
 Our team approached this project by first mapping out our application wireframe and user flow. 
 
-![](https://imgur.com/pqwgt62)
+![](https://i.imgur.com/pqwgt62.png)
 
-![](https://imgur.com/n1Gs1FI)
+![](https://i.imgur.com/n1Gs1FI.png)
 
-![](https://imgur.com/9Q66fB1)
+![](https://i.imgur.com/9Q66fB1.png)
 
 (Data)[goes here]
 
