@@ -1,0 +1,62 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.incident-form {
+    display: block;
+    padding: 20px;
+}
+
+#w3review {
+    display: block;
+    width: 50vh;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.incident-description {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.location-search-bar {
+    display: inline;
+    margin: 0 auto;
+    height: 20px;
+}
+
+.email-input-box {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.email-text-box {
+    background-color: white;
+    height: 50px;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #f98919;
+    border-radius: 50px;
+    height: 40px;
+    width: 150px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+    margin-top: 20px;
+    color: white;
+
+}
+
+.location-search-bar {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

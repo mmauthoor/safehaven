@@ -1,4 +1,4 @@
-
+import './LocationSearchBar.css'
 import usePlacesAutocomplete, {
     getGeocode,
     getLatLng,
@@ -68,7 +68,7 @@ const LocationSearchBar = (props) => {
         } = suggestion;
   
         return (
-          <li key={place_id} onClick={handleSelect(suggestion)}>
+          <li className="location-list" key={place_id} onClick={handleSelect(suggestion)}>
             <strong>{main_text}</strong> <small>{secondary_text}</small>
           </li>
         );
@@ -76,7 +76,7 @@ const LocationSearchBar = (props) => {
   
     return (
       <div ref={ref}>
-        <input
+        <input className="location-search-bar"
           value={value}
           onChange={handleInput}
           disabled={!ready}

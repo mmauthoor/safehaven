@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import './index.css'
 import DateAdapter from '@mui/lab/AdapterDateFns';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
@@ -63,37 +64,39 @@ export default function ReportForm() {
     
     
     return (
-        <div className="report-form-container">
-            <form action="">
-                
-                <LocalizationProvider dateAdapter={DateAdapter}>
-                    <Stack spacing={5}>
-                        <label htmlFor="">Email 
-                            <input type="email" onChange={handleEmail} />
-                        </label>
-                        
-                        <MobileDatePicker label="Date mobile"
-                            inputFormat="MM/dd/yyyy"
+        <div className="incident-form">
+            <h3>Incident Report Form</h3>
+                <form action="">
+                    
+                    <LocalizationProvider dateAdapter={DateAdapter}>
+                        <Stack spacing={5}>
+                            <label className="email-input-box" htmlFor="">Email 
+                                <input className="email-text-box" type="email" onChange={handleEmail} />
+                            </label>
+                            
+                            <MobileDatePicker label="Date mobile"
+                                inputFormat="MM/dd/yyyy"
+                                value={value}
+                                onChange={handleChange}
+                                renderInput={(params) => <TextField {...params} />}
+                            />
+
+                            <TimePicker
+                            label="Time"
                             value={value}
                             onChange={handleChange}
                             renderInput={(params) => <TextField {...params} />}
-                        />
+                            />
+                        </Stack>
+                    </LocalizationProvider>
+                    <LocationSearchBar className="location-search-bar" passLngData={setLng} passLatData={setLat}/>
+                    <label className="incident-description" htmlFor="">Optional description of events 
+                        <textarea
+                        id="w3review" name="w3review" rows="4" cols="50" onChange={handleUserInput}></textarea>
+                    </label>
+                    <button onClick={submitReport}>Submit report</button>
 
-                        <TimePicker
-                        label="Time"
-                        value={value}
-                        onChange={handleChange}
-                        renderInput={(params) => <TextField {...params} />}
-                        />
-                    </Stack>
-                </LocalizationProvider>
-                <LocationSearchBar passLngData={setLng} passLatData={setLat}/>
-                <label htmlFor="">Optional description of events 
-                    <textarea id="w3review" name="w3review" rows="4" cols="50" onChange={handleUserInput}></textarea>
-                </label>
-                <button onClick={submitReport}>Submit report</button>
-
-            </form>
+                </form>
         </div>
     )
 }
