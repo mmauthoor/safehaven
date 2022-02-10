@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import './index.css'
 import DateAdapter from '@mui/lab/AdapterDateFns';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
@@ -8,37 +7,35 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import LocationSearchBar from './LocationSearchBar';
 import { format } from 'date-fns';
+import './index.css'
 const axios = require('axios');
-
-
 
 export default function ReportForm() {
     
     const [email, setEmail] = useState("");
-    const [value, setValue] = useState(new Date());
+    const [dateTime, setDateTime] = useState(new Date());
     const [lat, setLat] = useState(0);
     const [lng, setLng] = useState(0);
     const [userInput, setUserInput] = useState("");
 
-    const handleChange = (newValue) => {
-        setValue(newValue);
+    const handleDateTime = (newDateTime) => {
+        setDateTime(newDateTime);
     };
 
     const handleEmail = (event) => {
         setEmail(event.target.value);
     }
     
-    const handleUserInput = ({target}) => {
-        const {value} = target;
-        setUserInput(value);
+    const handleUserInput = (event) => {
+        setUserInput(event.target.value);
     }
 
     // console.log(new Intl.DateTimeFormat('en-US', {hour: "numeric", minute: "numeric", dayPeriod: "short",}).format(value))
 
     const submitReport = (event) => {
         event.preventDefault();
-        const dateToString = format(value, 'yyyy-MM-dd');
-        const timeToString = format(value, "HH:mm");
+        const dateToString = format(dateTime, 'yyyy-MM-dd');
+        const timeToString = format(dateTime, "HH:mm");
 
         let url = "http://localhost:8000/api/reports"
         axios.post(url, {
@@ -50,18 +47,12 @@ export default function ReportForm() {
             user_input: userInput
         })
             .then(response => {
-                 if (response.data.redirect == "/resources"){
+                if (response.data.redirect == "/resources"){
                      window.location="/resources"
-                 }
+                }
             })
             .catch(error => console.log(error))
-        
-        // ideally redirect to help page with new message saying verify your email for report to be published
     }
-
-    // const renderHelp = () => {
-    //     console.log("Sorry you feel bad")
-    // }
     
     
     return (
@@ -77,23 +68,28 @@ export default function ReportForm() {
                             
                             <MobileDatePicker label="Date mobile"
                                 inputFormat="MM/dd/yyyy"
-                                value={value}
-                                onChange={handleChange}
+                                value={dateTime}
+                                onChange={handleDateTime}
                                 renderInput={(params) => <TextField {...params} />}
                             />
 
                             <TimePicker
-                            label="Time"
-                            value={value}
-                            onChange={handleChange}
-                            renderInput={(params) => <TextField {...params} />}
+                                label="Time"
+                                value={dateTime}
+                                onChange={handleDateTime}
+                                renderInput={(params) => <TextField {...params} />}
                             />
                         </Stack>
                     </LocalizationProvider>
-                    <LocationSearchBar className="location-search-bar" passLngData={setLng} passLatData={setLat}/>
-                    <label className="incident-description" htmlFor="">Optional description of events 
+
+                    <LocationSearchBar 
+                        className="location-search-bar" 
+                        passLngData={setLng} 
+                        passLatData={setLat}/>
+
+                    <label className="incident-description" htmlFor="">Optional description/information
                         <textarea
-                        id="w3review" name="w3review" rows="4" cols="50" onChange={handleUserInput}></textarea>
+                        id="incident-info" name="incident-info" rows="4" cols="50" onChange={handleUserInput}></textarea>
                     </label>
                     <button onClick={submitReport}>Submit report</button>
 

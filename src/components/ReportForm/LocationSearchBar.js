@@ -27,12 +27,6 @@ const LocationSearchBar = (props) => {
       clearSuggestions();
     });
 
-    // const functionHandler = (lng) => {
-      // props.passLngData(lng);
-      // props.passLatData(lat);
-
-      
-    // }
   
     const handleInput = (e) => {
       // Update the keyword of the input element
@@ -83,10 +77,10 @@ const LocationSearchBar = (props) => {
           value={value}
           onChange={handleInput}
           disabled={!ready}
-          placeholder="Select location of incident"
+          placeholder="Select location"
         />
         {/* We can use the "status" to decide whether we should display the dropdown or not */}
-        {status === "OK" && <ul>{renderSuggestions()}</ul>}
+        {status === "OK" && <ul className="location-list-ul">{renderSuggestions()}</ul>}
       </div>
     );
   };
