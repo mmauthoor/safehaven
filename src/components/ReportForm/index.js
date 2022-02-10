@@ -94,7 +94,7 @@ export default function ReportForm() {
                         <textarea
                         id="w3review" name="w3review" rows="4" cols="50" onChange={handleUserInput}></textarea>
                     </label>
-                    <button className="submit-btn" onClick={submitReport}>Submit report</button>
+                    <button onClick={submitReport}>Submit report</button>
 
                 </form>
         </div>
