@@ -3,7 +3,6 @@ import hotlinelogo from "../hotlinelogo.png"
 
 export default function Resources () {
 
-
     return (
         <div className="resources-container">
             <section className="help-article">
@@ -15,7 +14,6 @@ export default function Resources () {
                 <a href="https://www.sacl.com.au/"><img src={hotlinelogo} alt="" /></a>
             </section>
         </div>
-
 
     )
 }

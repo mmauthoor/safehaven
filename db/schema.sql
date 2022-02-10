@@ -1,11 +1,3 @@
--- ID - PRIMARY KEY
--- User email - EMAIL NOT NULL
--- Location (Long NOT NULL
--- Location / Lat) - FLOAT NOT NULL
--- Date - DATE NOT NULL
--- Time - TIME NOT NULL
--- User Input (sql injection protection) - TEXT
-
 CREATE DATABASE safehaven;
 
 \c safehaven;

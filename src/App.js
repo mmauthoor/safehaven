@@ -26,24 +26,44 @@ function App() {
 
   return (
     <div className="App">
-      <ul>
-        <li>
-        <li>
-          <img className="search-icon" src={searchIcon} alt="Logo" />
-          
-        </li>
-          <button className="report-btn">
-            <a href="/reports/new">Report Incident</a>
-          </button>
-        </li>
-      </ul>
+      <nav>
+        <ul>
+          <li>
+          <li>
+            <img className="search-icon" src={searchIcon} alt="Logo" />
+            
+          </li>
+            <button className="report-btn">
+              <a href="/reports/new">Report Incident</a>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
       <div>
-        <img className="logo" src={logo}></img>
+        <Link to="/"><img className="logo" src={logo} /></Link>
       </div>
       
       <Routes> 
-        <Route path='/' element={<>  <Home /> <LocationSearchBar passZoomData={setZoom} passLngData={setLocationLng} passLatData={setLocationLat}/> <ShowMap zoomValue={zoom} lat={locationLat} lng={locationLng} /> </>} />
-        <Route path="/reports/new" element={<> <ReportForm /> <ShowMap zoomValue={zoom} lat={locationLat} lng={locationLng}/> </>}/>
+        <Route path='/' element={<>
+          <Home />
+          <LocationSearchBar 
+            passZoomData={setZoom} 
+            passLngData={setLocationLng} 
+            passLatData={setLocationLat}/>
+          <ShowMap 
+            zoomValue={zoom} 
+            lat={locationLat} 
+            lng={locationLng} /> </>} 
+          />
+
+        <Route path="/reports/new" element={<> 
+          <ReportForm /> 
+          <ShowMap 
+            zoomValue={zoom} 
+            lat={locationLat} 
+            lng={locationLng}/> </>}
+          />
         <Route path="/resources" element={ <Resources /> } />
       </Routes>
     </div>

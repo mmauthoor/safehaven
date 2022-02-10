@@ -1,8 +1,8 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import './Map.css'
-import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react'
+// import { Link } from "react-router-dom";
+import { useState } from 'react'
 import MarkerImage from './MarkerImage.png'
 
 function ShowMap({lat, lng, zoomValue}) {
@@ -24,9 +24,6 @@ function ShowMap({lat, lng, zoomValue}) {
       .then(res => res.json())
       .then(res => setMarkers(res))
     }
-
-    // const [locationLat, setLocationLat] = useState(-37.8136)
-    // const [locationLng, setLocationLng] = useState(144.9631)
   
     return (
       // Important! Always set the container height explicitly

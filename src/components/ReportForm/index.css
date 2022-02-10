@@ -7,7 +7,7 @@ body {
     padding: 20px;
 }
 
-#w3review {
+#incident-info {
     display: block;
     width: 50vh;
     border: solid 1px lightgray;
@@ -59,4 +59,10 @@ button {
 .location-search-bar {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.location-list:hover {
+    background-color: linen;
+    transition: all 0.3s linear;
+
 }
