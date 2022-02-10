@@ -14,12 +14,6 @@ export default function Resources () {
                 <h3>For additional support, reach out here</h3>
                 <a href="https://www.sacl.com.au/"><img src={hotlinelogo} alt="" /></a>
             </section>
-
-
-
-
-
-
         </div>
 
 

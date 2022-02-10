@@ -5,16 +5,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import MarkerImage from './MarkerImage.png'
 
-// function getVisibleMarkers(coords){
-  // setMarkers([])
-//   let sql = `SELECT * FROM reports 
-//   WHERE (latitude BETWEEN ${mapBounds.botLat} AND ${mapBounds.topLat}) 
-//   AND (longitude BETWEEN ${mapBounds.botLng} AND ${mapBounds.topLng});`
-
-//   return db.query(sql) //check format of db
-// }
-
-function ShowMap() {
+function ShowMap({lat, lng, zoomValue}) {
   
   const Marker = () => (
     <img className="markers" src={MarkerImage}></img>
@@ -33,6 +24,9 @@ function ShowMap() {
       .then(res => res.json())
       .then(res => setMarkers(res))
     }
+
+    // const [locationLat, setLocationLat] = useState(-37.8136)
+    // const [locationLng, setLocationLng] = useState(144.9631)
   
     return (
       // Important! Always set the container height explicitly
@@ -41,8 +35,8 @@ function ShowMap() {
           bootstrapURLKeys={{
             key: process.env.REACT_APP_GOOGLE_MAPS_API
           }}
-          defaultCenter={{lat: -37.8136, lng: 144.9631}}
-          defaultZoom={12}
+          center={{lat: lat, lng: lng}}
+          zoom={zoomValue}
           onChange={e => handleBoundsChange(e)}
         >
         {markers.map((marker, index) => <Marker key={index} lat={marker.lat} lng={marker.lng}/>)}

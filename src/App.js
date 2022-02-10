@@ -5,6 +5,8 @@ import ShowMap, { MapContainer } from './Map.js';
 import ReportForm from './components/ReportForm'
 import {Routes, Route, Link} from 'react-router-dom'
 import Resources from './components/Resources'
+import LocationSearchBar from "./components/ReportForm/LocationSearchBar"
+import {useState} from 'react'
 
 function Home() {
   return (
@@ -17,12 +19,18 @@ function Home() {
 
 
 function App() {
+
+    const [locationLat, setLocationLat] = useState(-37.8136)
+    const [locationLng, setLocationLng] = useState(144.9631)
+    const [zoom, setZoom] = useState(12)
+
   return (
     <div className="App">
       <ul>
         <li>
         <li>
           <img className="search-icon" src={searchIcon} alt="Logo" />
+          
         </li>
           <button className="report-btn">
             <a href="/reports/new">Report Incident</a>
@@ -34,8 +42,8 @@ function App() {
       </div>
       
       <Routes> 
-        <Route path='/' element={<> <Home /> <ShowMap /> </>} />
-        <Route path="/reports/new" element={<> <ReportForm /> <ShowMap /> </>}/>
+        <Route path='/' element={<>  <Home /> <LocationSearchBar passZoomData={setZoom} passLngData={setLocationLng} passLatData={setLocationLat}/> <ShowMap zoomValue={zoom} lat={locationLat} lng={locationLng} /> </>} />
+        <Route path="/reports/new" element={<> <ReportForm /> <ShowMap zoomValue={zoom} lat={locationLat} lng={locationLng}/> </>}/>
         <Route path="/resources" element={ <Resources /> } />
       </Routes>
     </div>
