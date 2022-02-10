@@ -4,7 +4,7 @@ import './App.css';
 import ShowMap, { MapContainer } from './Map.js';
 import ReportForm from './components/ReportForm'
 import {Routes, Route, Link} from 'react-router-dom'
-
+import Resources from './components/Resources'
 
 function Home() {
   return (
@@ -36,6 +36,7 @@ function App() {
       <Routes> 
         <Route path='/' element={<> <Home /> <ShowMap /> </>} />
         <Route path="/reports/new" element={<> <ReportForm /> <ShowMap /> </>}/>
+        <Route path="/resources" element={ <Resources /> } />
       </Routes>
     </div>
   );

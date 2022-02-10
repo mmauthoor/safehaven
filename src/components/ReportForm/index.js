@@ -50,8 +50,9 @@ export default function ReportForm() {
             user_input: userInput
         })
             .then(response => {
-                // console.log(newReport)
-                console.log(response)
+                 if (response.data.redirect == "/resources"){
+                     window.location="/resources"
+                 }
             })
             .catch(error => console.log(error))
         
