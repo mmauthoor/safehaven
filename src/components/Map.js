@@ -25,6 +25,7 @@ function ShowMap({lat, lng, zoomValue}) {
   const Marker = (props) => {
     const { index, incidentDate, incidentTime, userInput } = props;
     const date = new Date(incidentDate);
+    const intlDate = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium'}).format(date);
     return (
       <>
         <ClickAwayListener onClickAway={handleTooltipClose}>
@@ -40,8 +41,8 @@ function ShowMap({lat, lng, zoomValue}) {
                 disableTouchListener
                 title={<div style={{width: '15vw'}}>
                   <h4>Incident Reported</h4>
-                  <p>Date: {format(date, 'dd-MM-yyyy')}</p>
-                  <p>Time: {incidentTime.substring(0, 5)}</p>
+                  <p>{intlDate}</p>
+                  <p>at {incidentTime.substring(0, 5)}</p>
                   {userInput
                     ? <p>Details: {userInput}</p>
                     : <></>

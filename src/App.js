@@ -7,6 +7,7 @@ import {Routes, Route, Link} from 'react-router-dom'
 import Resources from './components/Resources'
 import LocationSearchBar from "./components/ReportForm/LocationSearchBar"
 import {useState} from 'react'
+import homelogo from './homelogo.png'
 
 function Home() {
   return (
@@ -29,10 +30,12 @@ function App() {
       <nav>
         <ul>
           <li>
-          <li>
-            <img className="search-icon" src={searchIcon} alt="Logo" />
-            
+            <a href="/"><img src={homelogo} alt="" /></a> 
           </li>
+          <li>
+            <img className="search-icon" src={searchIcon} alt="Logo" />  
+          </li>
+          <li>
             <button className="report-btn">
               <a href="/reports/new">Report Incident</a>
             </button>
@@ -41,7 +44,7 @@ function App() {
       </nav>
 
       <div>
-        <Link to="/"><img className="logo" src={logo} /></Link>
+        <a href="/"><img src={logo} alt="" /></a>
       </div>
       
       <Routes> 
