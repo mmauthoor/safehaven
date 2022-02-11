@@ -103,7 +103,9 @@ export default function ReportForm() {
 
                         </Stack>
                     </LocalizationProvider>
-                                     
+                    
+                    <ReCAPTCHA sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" onChange={captchaChange} />
+                 
                     <button className="submit-btn" onClick={submitReport}>Submit report</button>
 
                 </form>
