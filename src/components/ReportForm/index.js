@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack';
 import LocationSearchBar from './LocationSearchBar';
 import { format } from 'date-fns';
 import './index.css'
+import ReCAPTCHA from "react-google-recaptcha";
 const axios = require('axios');
 
 export default function ReportForm() {
@@ -54,6 +55,11 @@ export default function ReportForm() {
             .catch(error => console.log(error))
     }
     
+    function captchaChange(value) {
+        console.log("Captcha value:", value);
+      }
+
+    const isDisabled =  handleUserInput === ''
     
     return (
         <div className="incident-form">
@@ -91,7 +97,10 @@ export default function ReportForm() {
                         <textarea
                         id="incident-info" name="incident-info" rows="4" cols="50" onChange={handleUserInput}></textarea>
                     </label>
-                    <button onClick={submitReport}>Submit report</button>
+                    <ReCAPTCHA sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" onChange={captchaChange} />
+                    <button onClick={submitReport} disable={isDisabled}>Submit report</button>
+                   
+                    
 
                 </form>
         </div>
