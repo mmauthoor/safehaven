@@ -28,7 +28,7 @@ body {
     height: 20px;
 }
 
-.email-input-box {
+.input-box {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -41,7 +41,7 @@ body {
     border-radius: 5px;
 }
 
-button {
+.submit-btn {
     background-color: #f98919;
     border-radius: 50px;
     height: 40px;
@@ -53,6 +53,11 @@ button {
     border: none;
     margin-top: 20px;
     color: white;
+}
+
+.submit-btn:hover {
+    background-color: #E40564;
+    transition: all 0.3s linear;
 
 }
 

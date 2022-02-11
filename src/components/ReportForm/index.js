@@ -68,39 +68,43 @@ export default function ReportForm() {
                     
                     <LocalizationProvider dateAdapter={DateAdapter}>
                         <Stack spacing={5}>
-                            <label className="email-input-box" htmlFor="">Email 
+                            <label className="input-box" htmlFor="">Email 
                                 <input className="email-text-box" type="email" onChange={handleEmail} />
                             </label>
-                            
-                            <MobileDatePicker label="Date mobile"
-                                inputFormat="MM/dd/yyyy"
-                                value={dateTime}
-                                onChange={handleDateTime}
-                                renderInput={(params) => <TextField {...params} />}
-                            />
 
-                            <TimePicker
-                                label="Time"
-                                value={dateTime}
-                                onChange={handleDateTime}
-                                renderInput={(params) => <TextField {...params} />}
-                            />
+                            <label className="input-box" htmlFor="">Date
+                                <MobileDatePicker 
+                                    inputFormat="MM/dd/yyyy"
+                                    value={dateTime}
+                                    onChange={handleDateTime}
+                                    renderInput={(params) => <TextField {...params} />}
+                                />
+                            </label>
+
+                            <label className="input-box" htmlFor="">Time
+                                <TimePicker
+                                    value={dateTime}
+                                    onChange={handleDateTime}
+                                    renderInput={(params) => <TextField {...params} />}
+                                />
+                            </label>
+
+                            <label className="input-box" htmlFor="">Location
+                                <LocationSearchBar 
+                                    className="location-search-bar" 
+                                    passLngData={setLng} 
+                                    passLatData={setLat}/>
+                            </label>
+
+                            <label className="incident-description" htmlFor="">Optional description/information
+                                <textarea
+                                id="incident-info" name="incident-info" rows="4" cols="50" onChange={handleUserInput}></textarea>
+                            </label>
+
                         </Stack>
                     </LocalizationProvider>
-
-                    <LocationSearchBar 
-                        className="location-search-bar" 
-                        passLngData={setLng} 
-                        passLatData={setLat}/>
-
-                    <label className="incident-description" htmlFor="">Optional description/information
-                        <textarea
-                        id="incident-info" name="incident-info" rows="4" cols="50" onChange={handleUserInput}></textarea>
-                    </label>
-                    <ReCAPTCHA sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" onChange={captchaChange} />
-                    <button onClick={submitReport} disable={isDisabled}>Submit report</button>
-                   
-                    
+                                     
+                    <button className="submit-btn" onClick={submitReport}>Submit report</button>
 
                 </form>
         </div>
